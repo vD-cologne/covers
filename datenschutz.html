@@ -14,12 +14,11 @@
 }
 body{font-family:var(--sans);background:var(--sand);color:var(--ink);min-height:100vh}
 nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,240,232,.95);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
-.nav-logo{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--ink);text-decoration:none}
-.nav-logo em{color:var(--terr);font-style:normal}
+.nav-logo{display:inline-flex;align-items:center;text-decoration:none}
+.nav-logo img{height:34px;width:auto;display:block}
 .back-link{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s}
 .back-link:hover{color:var(--terr)}
 .back-link::before{content:'←'}
-
 main{max-width:780px;margin:4rem auto;padding:0 2rem 6rem}
 .page-label{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--terr);display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
 .page-label::before{content:'';display:block;width:1.5rem;height:2px;background:var(--terr);border-radius:2px}
@@ -33,14 +32,15 @@ ul li{margin-bottom:.3rem}
 a{color:var(--terr);text-decoration:none}
 a:hover{text-decoration:underline}
 .highlight-box{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--terr);border-radius:4px;padding:1.5rem 1.8rem;margin-bottom:1.5rem;font-size:.92rem;line-height:1.85;color:var(--ink)}
-footer{background:var(--ink);color:rgba(245,240,232,.4);padding:1.5rem 4rem;font-size:.78rem;text-align:center}
-
-@media(max-width:700px){nav{padding:1rem 1.5rem}main{margin:2rem auto;padding:0 1.2rem 4rem}footer{padding:1.5rem}}
+footer{background:var(--ink);color:rgba(245,240,232,.4);padding:1.5rem 4rem;font-size:.78rem;display:flex;align-items:center;justify-content:center;gap:1.5rem}
+footer img{height:22px;width:auto;filter:brightness(0) invert(1);opacity:.5}
+@media(max-width:700px){nav{padding:1rem 1.5rem}main{margin:2rem auto;padding:0 1.2rem 4rem}footer{padding:1.5rem;flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
+
 <nav>
-  <a href="index.html" class="nav-logo">Covers<em>.</em></a>
+  <a href="index.html" class="nav-logo"><img src="COVERS-Logo.png" alt="COVERS Gruppe"/></a>
   <a href="index.html" class="back-link">Zurück zur Startseite</a>
 </nav>
 
@@ -124,6 +124,10 @@ footer{background:var(--ink);color:rgba(245,240,232,.4);padding:1.5rem 4rem;font
   <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand März 2025. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Website abgerufen werden.</p>
 </main>
 
-<footer>© 2025 COVERS Gruppe GmbH · Siegburger Str. 233 · 50679 Köln</footer>
+<footer>
+  <img src="COVERS-Logo.png" alt="COVERS Gruppe"/>
+  <span>© 2025 COVERS Gruppe GmbH · Siegburger Str. 233 · 50679 Köln</span>
+</footer>
+
 </body>
 </html>
