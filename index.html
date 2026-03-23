@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Covers Gruppe – Ihr Versicherungsmakler aus Köln</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sans:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --serif:'Georgia','Times New Roman',serif;
+  --sand:#f5f0e8;--warm:#ede6d6;--terr:#c17f4a;--terr2:#e8a96a;
+  --ink:#1e1a14;--muted:#7a7060;--border:rgba(193,127,74,.2);--white:#fdfaf5;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--sand);color:var(--ink);overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:rgba(245,240,232,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{display:inline-flex;align-items:center;text-decoration:none}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--terr)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem;position:relative;overflow:hidden}
+.cologne-skyline{position:absolute;bottom:0;right:-2%;width:55%;max-width:700px;opacity:.07;pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--terr);margin-bottom:1.5rem}
+.hero-tag::before{content:'';display:block;width:2rem;height:2px;background:var(--terr);border-radius:2px}
+h1{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,5rem);font-weight:700;line-height:1.1;max-width:700px;margin-bottom:1.8rem}
+h1 .accent{color:var(--terr)}
+h1 .italic{font-style:italic;font-weight:400}
+.hero-sub{font-size:1.1rem;line-height:1.8;color:var(--muted);max-width:520px;margin-bottom:3rem;font-weight:300}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;background:var(--terr);color:var(--white);font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .25s,transform .2s;border-radius:2px}
+.btn-primary:hover{background:#a86a38;transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border:1.5px solid var(--border);color:var(--ink);font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:border-color .25s,color .25s;border-radius:2px}
+.btn-ghost:hover{border-color:var(--terr);color:var(--terr)}
+.hero-badges{display:flex;flex-wrap:wrap;gap:2rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.badge-item{display:flex;align-items:center;gap:.7rem}
+.badge-num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--terr);line-height:1}
+.badge-text{font-size:.8rem;color:var(--muted);line-height:1.35;max-width:90px}
+
+section{padding:6rem 4rem;position:relative}
+.sec-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--terr);margin-bottom:.8rem}
+.sec-tag::before{content:'';display:block;width:1.5rem;height:2px;background:var(--terr);border-radius:2px}
+h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+.section-intro{font-size:1rem;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:3.5rem;font-weight:300}
+.divider{border:none;border-top:1px solid var(--border);margin:0 4rem}
+
+#unternehmen{background:var(--white)}
+.companies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.company-card{background:var(--sand);border:1px solid var(--border);border-radius:4px;padding:2.5rem;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.company-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(193,127,74,.12);border-color:var(--terr2)}
+.company-card.coming{opacity:.6}
+.card-icon{width:44px;height:44px;border-radius:50%;background:rgba(193,127,74,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem}
+.card-icon svg{width:20px;height:20px;stroke:var(--terr);fill:none;stroke-width:1.8}
+.card-label{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terr);margin-bottom:.5rem}
+.card-name{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-bottom:.8rem;line-height:1.2}
+.card-desc{font-size:.9rem;color:var(--muted);line-height:1.7}
+.soon-badge{display:inline-block;margin-top:1rem;font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--terr);border:1px solid var(--terr2);padding:.2rem .7rem;border-radius:20px}
+
+.expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.exp-card{display:flex;gap:1.3rem;padding:2rem;border:1px solid var(--border);border-radius:4px;background:var(--white);transition:border-color .25s}
+.exp-card:hover{border-color:var(--terr2)}
+.exp-icon{width:48px;height:48px;flex-shrink:0;background:rgba(193,127,74,.1);border-radius:4px;display:flex;align-items:center;justify-content:center}
+.exp-icon svg{width:22px;height:22px;stroke:var(--terr);fill:none;stroke-width:1.7}
+.exp-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.exp-text{font-size:.88rem;color:var(--muted);line-height:1.7}
+
+#ueber-uns{background:var(--ink);color:var(--sand);position:relative;overflow:hidden}
+#ueber-uns .sec-tag{color:var(--terr2)}
+#ueber-uns .sec-tag::before{background:var(--terr2)}
+#ueber-uns h2{color:var(--white)}
+.cologne-dark{position:absolute;bottom:0;right:0;width:45%;max-width:600px;opacity:.06;pointer-events:none}
+.ueber-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.ueber-text p{font-size:.95rem;line-height:1.85;color:rgba(245,240,232,.75);margin-bottom:1.2rem;font-weight:300}
+.ueber-text p strong{color:var(--terr2);font-weight:600}
+.team-facts{display:flex;flex-direction:column;gap:1.5rem}
+.fact-row{display:flex;align-items:flex-start;gap:1rem;padding:1.5rem;border:1px solid rgba(193,127,74,.2);border-radius:4px;background:rgba(255,255,255,.03)}
+.fact-icon{width:40px;height:40px;flex-shrink:0;background:rgba(193,127,74,.15);border-radius:4px;display:flex;align-items:center;justify-content:center}
+.fact-icon svg{width:19px;height:19px;stroke:var(--terr2);fill:none;stroke-width:1.8}
+.fact-title{font-size:.82rem;font-weight:600;letter-spacing:.06em;color:var(--terr2);text-transform:uppercase;margin-bottom:.3rem}
+.fact-desc{font-size:.88rem;color:rgba(245,240,232,.65);line-height:1.6}
+
+#kontakt{background:var(--warm)}
+.kontakt-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.kontakt-text p{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
+.contact-items{display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--ink);font-size:.92rem;padding:.8rem 1rem;border:1px solid var(--border);border-radius:4px;background:var(--white);transition:border-color .2s,color .2s}
+.contact-item:hover{border-color:var(--terr);color:var(--terr)}
+.contact-item svg{width:18px;height:18px;stroke:var(--terr);fill:none;stroke-width:1.8;flex-shrink:0}
+.contact-address{padding:2rem;border:1px solid var(--border);border-radius:4px;background:var(--white);font-size:.92rem;line-height:1.9;color:var(--muted)}
+.contact-address strong{color:var(--ink);font-weight:600;display:block;margin-bottom:.5rem;font-family:var(--serif);font-size:1.1rem}
+
+footer{background:var(--ink);color:rgba(245,240,232,.5);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;font-size:.78rem;letter-spacing:.04em;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--sand)}
+.footer-logo em{color:var(--terr);font-style:normal}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:rgba(245,240,232,.4);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--terr2)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .hero{padding:6rem 1.5rem 4rem}
+  section{padding:4rem 1.5rem}
+  .divider{margin:0 1.5rem}
+  h1{font-size:2.6rem}
+  .ueber-grid,.kontakt-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .expertise-grid{grid-template-columns:1fr;gap:1rem}
+  footer{padding:1.5rem;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><img src="covers_logo_final_vector.svg" alt="COVERS Gruppe"/></a>
+  <div class="nav-links">
+    <a href="#unternehmen">Unternehmen</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="start">
+  <svg class="cologne-skyline" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" stroke="#c17f4a" fill="none" stroke-width="1.2">
+    <path d="M0 420 Q200 410 400 420 Q600 430 800 420" stroke-opacity=".5"/>
+    <path d="M0 438 Q200 428 400 438 Q600 448 800 438" stroke-opacity=".3"/>
+    <rect x="80" y="260" width="70" height="160"/><rect x="80" y="210" width="70" height="55" rx="35 35 0 0"/>
+    <line x1="115" y1="260" x2="115" y2="420"/>
+    <rect x="90" y="290" width="18" height="12"/><rect x="118" y="290" width="18" height="12"/>
+    <rect x="90" y="320" width="18" height="12"/><rect x="118" y="320" width="18" height="12"/>
+    <rect x="90" y="350" width="18" height="12"/><rect x="118" y="350" width="18" height="12"/>
+    <rect x="90" y="380" width="18" height="12"/><rect x="118" y="380" width="18" height="12"/>
+    <rect x="200" y="230" width="80" height="190"/><rect x="200" y="175" width="80" height="60" rx="40 40 0 0"/>
+    <line x1="240" y1="230" x2="240" y2="420"/>
+    <rect x="212" y="260" width="20" height="13"/><rect x="248" y="260" width="20" height="13"/>
+    <rect x="212" y="292" width="20" height="13"/><rect x="248" y="292" width="20" height="13"/>
+    <rect x="212" y="324" width="20" height="13"/><rect x="248" y="324" width="20" height="13"/>
+    <rect x="212" y="356" width="20" height="13"/><rect x="248" y="356" width="20" height="13"/>
+    <rect x="212" y="388" width="20" height="13"/><rect x="248" y="388" width="20" height="13"/>
+    <rect x="340" y="250" width="72" height="170"/><rect x="340" y="198" width="72" height="57" rx="36 36 0 0"/>
+    <line x1="376" y1="250" x2="376" y2="420"/>
+    <rect x="351" y="278" width="18" height="12"/><rect x="383" y="278" width="18" height="12"/>
+    <rect x="351" y="308" width="18" height="12"/><rect x="383" y="308" width="18" height="12"/>
+    <rect x="351" y="338" width="18" height="12"/><rect x="383" y="338" width="18" height="12"/>
+    <rect x="351" y="368" width="18" height="12"/><rect x="383" y="368" width="18" height="12"/>
+    <line x1="560" y1="60" x2="560" y2="420"/><line x1="620" y1="80" x2="620" y2="420"/>
+    <path d="M540 180 L560 60 L580 180Z"/><path d="M600 195 L620 80 L640 195Z"/>
+    <rect x="520" y="180" width="140" height="240"/>
+    <rect x="555" y="205" width="15" height="20"/><rect x="610" y="205" width="15" height="20"/>
+    <rect x="555" y="240" width="15" height="20"/><rect x="610" y="240" width="15" height="20"/>
+    <path d="M0 418 Q400 390 800 418" stroke-opacity=".35"/>
+    <line x1="200" y1="418" x2="200" y2="460" stroke-opacity=".25"/>
+    <line x1="400" y1="390" x2="400" y2="460" stroke-opacity=".25"/>
+    <line x1="600" y1="418" x2="600" y2="460" stroke-opacity=".25"/>
+  </svg>
+
+  <div class="hero-tag">Covers Gruppe · Köln</div>
+  <h1>Versicherung,<br>die zu <span class="accent italic">Menschen</span><br>passt.</h1>
+  <p class="hero-sub">Wir sind Ihr unabhängiger Versicherungsmakler aus Köln. Persönlich. Kompetent. Mit über 100 Jahren gesammeltem Versicherungswissen – für Sie da.</p>
+  <div class="hero-cta">
+    <a href="#kontakt" class="btn-primary">Jetzt Kontakt aufnehmen</a>
+    <a href="#unternehmen" class="btn-ghost">Unsere Unternehmen</a>
+  </div>
+  <div class="hero-badges">
+    <div class="badge-item"><div class="badge-num">10+</div><div class="badge-text">Experten in Ihrem Team</div></div>
+    <div class="badge-item"><div class="badge-num">100+</div><div class="badge-text">Jahre Versicherungs&shy;wissen</div></div>
+    <div class="badge-item"><div class="badge-num">3</div><div class="badge-text">Spezialisierte Tochter&shy;unternehmen</div></div>
+    <div class="badge-item"><div class="badge-num">5</div><div class="badge-text">Unternehmen in der Gruppe</div></div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- UNTERNEHMEN -->
+<section id="unternehmen">
+  <div class="sec-tag reveal">Unser Portfolio</div>
+  <h2 class="reveal">Drei Spezialisten.<br>Eine Gruppe.</h2>
+  <p class="section-intro reveal">Unter dem Dach der Covers Gruppe vereinen wir spezialisierte Maklerunternehmen – jedes mit klarem Fokus, eigener Expertise und einem gemeinsamen Anspruch: das Beste für unsere Kunden.</p>
+  <div class="companies-grid">
+    <div class="company-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="card-label">Bau &amp; Wohngebäude</div>
+      <div class="card-name">Stone GmbH</div>
+      <div class="card-desc">Spezialist rund ums Gebäude. Ob Neubau, Bestand oder Sanierung – Stone berät zu Bau- und Wohngebäudeversicherungen mit echtem Fachwissen und regionaler Verwurzelung.</div>
+    </div>
+    <div class="company-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+      <div class="card-label">Digital &amp; Spezialkonzepte</div>
+      <div class="card-name">vD versicherDich GmbH</div>
+      <div class="card-desc">Versicherung dort, wo das Leben stattfindet: online. vD steht für digitale Abschlüsse, smarte Lösungen und eigene Spezialkonzepte – modern, schnell und unkompliziert.</div>
+    </div>
+    <div class="company-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <div class="card-label">Startups &amp; Gründer</div>
+      <div class="card-name">Teal Insurance Services GmbH</div>
+      <div class="card-desc">Der Versicherungspartner für Startups und junge Unternehmen. Teal versteht die Dynamik von Gründern und liefert passgenaue Absicherung – ohne Bürokratie, mit echtem Verständnis.</div>
+    </div>
+    <div class="company-card coming reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <div class="card-label">Nächstes Kapitel</div>
+      <div class="card-name">Bald verfügbar</div>
+      <div class="card-desc">Wir wachsen weiter. Ein neues Unternehmen ergänzt bald unser Portfolio.</div>
+      <span class="soon-badge">Demnächst</span>
+    </div>
+    <div class="company-card coming reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <div class="card-label">Nächstes Kapitel</div>
+      <div class="card-name">Bald verfügbar</div>
+      <div class="card-desc">Noch ein weiteres Unternehmen ist in Vorbereitung. Die Covers Gruppe wächst.</div>
+      <span class="soon-badge">Demnächst</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="sec-tag reveal">Was uns ausmacht</div>
+  <h2 class="reveal">Expertise,<br>die zählt.</h2>
+  <p class="section-intro reveal">Hinter der Covers Gruppe steht ein Team mit über 10 Fachleuten und mehr als 100 Jahren gebündeltem Versicherungswissen. Nah am Markt, nah am Kunden.</p>
+  <div class="expertise-grid">
+    <div class="exp-card reveal">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <div>
+        <div class="exp-title">Vertragserstellung</div>
+        <div class="exp-text">Wir kennen das Kleingedruckte. Unsere Experten gestalten Versicherungsverträge, die wirklich passen – keine Standardlösungen, sondern maßgeschneiderte Absicherung.</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div>
+        <div class="exp-title">Schadensabwicklung</div>
+        <div class="exp-text">Im Schadenfall sind wir an Ihrer Seite. Schnell, strukturiert und mit dem Ziel, das Beste für Sie herauszuholen – denn genau dafür sind wir da.</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div>
+        <div class="exp-title">Immer up to date</div>
+        <div class="exp-text">Der Markt verändert sich – wir auch. Unser Team bildet sich kontinuierlich fort und bringt neue Lösungen aktiv zu Ihnen.</div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div>
+        <div class="exp-title">Persönliche Beratung</div>
+        <div class="exp-text">Über 10 Fachleute, über 100 Jahre Wissen – und trotzdem kennen wir jeden Kunden persönlich. Das ist unser Anspruch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber-uns">
+  <svg class="cologne-dark" viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" stroke="#b8975a" fill="none" stroke-width="1">
+    <rect x="50" y="180" width="60" height="220"/><rect x="50" y="130" width="60" height="55" rx="30 30 0 0"/>
+    <rect x="160" y="150" width="70" height="250"/><rect x="160" y="95" width="70" height="60" rx="35 35 0 0"/>
+    <rect x="285" y="160" width="62" height="240"/><rect x="285" y="108" width="62" height="57" rx="31 31 0 0"/>
+    <line x1="450" y1="30" x2="450" y2="400"/><line x1="510" y1="50" x2="510" y2="400"/>
+    <path d="M430 150 L450 30 L470 150Z"/><path d="M490 162 L510 50 L530 162Z"/>
+    <rect x="420" y="150" width="120" height="250"/>
+    <path d="M0 360 Q350 330 700 360"/>
+  </svg>
+  <div class="ueber-grid">
+    <div class="ueber-text">
+      <div class="sec-tag reveal">Über die Covers Gruppe</div>
+      <h2 class="reveal">Verwurzelt in Köln.<br>Zuhause bei<br>unseren Kunden.</h2>
+      <p class="reveal">Die Covers Gruppe ist eine unabhängige Maklergruppe mit Sitz in <strong>Köln</strong>. Wir glauben daran, dass gute Versicherungsberatung auf echtem Vertrauen basiert – nicht auf Provisionsinteressen, sondern auf Ihrer Situation.</p>
+      <p class="reveal">Unter unserem Dach vereinen wir Spezialisten mit unterschiedlichen Schwerpunkten: vom Gebäude über digitale Produkte bis hin zu Startup-Versicherungen. So finden Sie bei uns immer den richtigen Ansprechpartner.</p>
+      <p class="reveal">Wir wachsen – und mit uns unsere Möglichkeiten. <strong>Rheinisch bodenständig. Fachlich auf der Höhe der Zeit.</strong></p>
+    </div>
+    <div class="team-facts">
+      <div class="fact-row reveal">
+        <div class="fact-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="fact-title">100+ Jahre Wissen</div><div class="fact-desc">Das kombinierte Versicherungswissen unseres Teams – gesammelt, gelebt, weitergegeben.</div></div>
+      </div>
+      <div class="fact-row reveal">
+        <div class="fact-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <div><div class="fact-title">Über 10 Fachleute</div><div class="fact-desc">Ein engagiertes, wachsendes Team – mit echtem Interesse an Ihrem Thema.</div></div>
+      </div>
+      <div class="fact-row reveal">
+        <div class="fact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><div class="fact-title">Immer am Zahn der Zeit</div><div class="fact-desc">Neue Produkte, neue Risiken, neue Lösungen – wir bleiben für Sie stets aktuell.</div></div>
+      </div>
+      <div class="fact-row reveal">
+        <div class="fact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="fact-title">Heimat Köln</div><div class="fact-desc">Regional verwurzelt, überregional kompetent – mit dem Rhein im Rücken.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="kontakt-wrap">
+    <div class="kontakt-text">
+      <div class="sec-tag reveal">Sprechen wir</div>
+      <h2 class="reveal">Wir sind für<br>Sie da.</h2>
+      <p class="reveal">Ob konkrete Frage, erstes Gespräch oder eine Empfehlung – melden Sie sich gern. Wir antworten schnell und unkompliziert, wie man das am Rhein so macht.</p>
+      <div class="contact-items reveal">
+        <a href="mailto:info@covers-gruppe.de" class="contact-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          info@covers-gruppe.de
+        </a>
+        <a href="tel:+4922100000000" class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +49 (221) __ __ __ __ __
+        </a>
+      </div>
+    </div>
+    <div class="contact-address reveal">
+      <strong>COVERS Gruppe GmbH</strong>
+      Siegburger Str. 233<br>
+      50679 Köln<br>
+      Nordrhein-Westfalen<br><br>
+      Geschäftsführer: Martin Krippner<br>
+      Amtsgericht Köln · HRB 126501
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Covers<em>.</em></div>
+  <div>© 2025 COVERS Gruppe GmbH · Alle Rechte vorbehalten</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+const els=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target)}
+  });
+},{threshold:0.1});
+els.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
